@@ -1,0 +1,7 @@
+runtime: custom
+env: flex
+threadsafe: yes
+handlers:
+- url: .*
+  script: main.app
+
