@@ -13,9 +13,6 @@ RUN ./google-cloud-sdk/bin/gcloud components install beta
 ADD . /app/
 RUN pip install -r requirements.txt
 ENV PATH /home/vmagent/app/google-cloud-sdk/bin:$PATH
-# CHANGE THIS: Edit the following 3 lines to use your settings.
-ENV PROJECT tvlk-recsys-platform
-ENV BUCKET tvlk-recsys-storage
 
 EXPOSE 8080
 WORKDIR /app
