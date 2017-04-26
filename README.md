@@ -11,4 +11,4 @@ repos](https://github.com/GoogleCloudPlatform) for sample applications and
 scaffolding for other python frameworks and use cases.
 
 ## Author
-Logan Adi Chris Bangun
+Adi Chris Bangun
