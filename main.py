@@ -1,4 +1,4 @@
-import logging
+mport logging
 
 from apache_beam.utils import processes
 
@@ -7,17 +7,23 @@ from recsys_data_pipeline.ingestion import IngestionToBigQuery
 from recsys_data_pipeline.common.configReader import ConfigReader
 
 from flask import Flask
+from flask import request
+
+logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
-app.config['DEBUG'] = True
+app.config['DEBUG'] = False
 
 # Note: We don't need to call run() since our application is embedded within
 # the App Engine WSGI application server.
 
+@app.route('/halo')
+def index():
+	return 'Main Page', 200
 
-@app.route('/')
-def hello():
-    """Return a friendly HTTP greeting."""
-    logging.getLogger().setLevel(logging.INFO)
+
+@app.route('/launchdfjob', methods=['GET', 'POST'])
+def launch_df_job():
+    logging.getLogger().setLevel(logging.INFO)    	
     config = ConfigReader('columbus-config')  # TODO read from args
     tables = TableLoader('experience')
     ingestor = IngestionToBigQuery(config.configuration, tables.list_of_tables)
