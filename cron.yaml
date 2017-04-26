@@ -1,0 +1,5 @@
+cron:
+- description: launch dataflow pipeline
+  url: /launchdfjob
+  schedule: every 24 hours
+  target: default
