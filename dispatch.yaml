@@ -1,0 +1,10 @@
+dispatch:
+
+  - url: "*/halo"
+    service: default
+
+  - url: "*/launchdfjob*"
+    service: default
+
+  - url: "*/print-access-token*"
+    service: default% 
